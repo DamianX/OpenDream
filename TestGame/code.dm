@@ -42,3 +42,7 @@
 /world/New()
 	..()
 	world.log << "World loaded!"
+	var/matrix/M = matrix(1,2,3,4,5,6)
+	var/matrix/N = matrix(7,8,9,10,11,12)
+	M.Multiply(N)
+	world.log << "[M.a] [M.b] [M.c] [M.d] [M.e] [M.f]"

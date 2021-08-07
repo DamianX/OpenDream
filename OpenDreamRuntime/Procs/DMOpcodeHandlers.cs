@@ -833,9 +833,15 @@ namespace OpenDreamRuntime.Procs {
         public static ProcStatus? Multiply(DMProcState state) {
             DreamValue second = state.PopDreamValue();
             DreamValue first = state.PopDreamValue();
-
             if (first.Value == null || second.Value == null) {
                 state.Push(new DreamValue(0));
+            } else if (first.Type == DreamValue.DreamValueType.DreamObject) {
+                var metaObject = first.GetValueAsDreamObject().ObjectDefinition.MetaObject;
+                if (metaObject != null) {
+                    state.Push(metaObject.OperatorMultiply(first, second));
+                } else {
+                    throw new Exception("Invalid multiply operation on " + first + " and " + second);
+                }
             } else if (first.Type == DreamValue.DreamValueType.Float && second.Type == DreamValue.DreamValueType.Float) {
                 state.Push(new DreamValue(first.GetValueAsFloat() * second.GetValueAsFloat()));
             } else {

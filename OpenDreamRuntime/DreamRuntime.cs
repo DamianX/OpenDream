@@ -98,6 +98,7 @@ namespace OpenDreamRuntime
             ObjectTree.SetMetaObject(DreamPath.Atom, new DreamMetaObjectAtom(this));
             ObjectTree.SetMetaObject(DreamPath.Area, new DreamMetaObjectArea(this));
             ObjectTree.SetMetaObject(DreamPath.Turf, new DreamMetaObjectTurf(this));
+            ObjectTree.SetMetaObject(DreamPath.Matrix, new DreamMetaObjectMatrix(this));
             ObjectTree.SetMetaObject(DreamPath.Movable, new DreamMetaObjectMovable(this));
             ObjectTree.SetMetaObject(DreamPath.Mob, new DreamMetaObjectMob(this));
             DreamProcNative.SetupNativeProcs(ObjectTree);

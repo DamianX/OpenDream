@@ -57,6 +57,11 @@ namespace OpenDreamRuntime.Objects.MetaObjects {
             throw new InvalidOperationException("Cannot mask " + a + " and " + b);
         }
 
+        public virtual DreamValue OperatorMultiply(DreamValue a, DreamValue b)
+        {
+            throw new InvalidOperationException("Cannot multiply" + a + " and " + b);
+        }
+
         public virtual DreamValue OperatorIndex(DreamObject dreamObject, DreamValue index) {
             throw new InvalidOperationException("Cannot index " + dreamObject);
         }
