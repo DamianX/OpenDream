@@ -62,7 +62,6 @@ public sealed partial class DreamObjectTree {
     [Dependency] private DreamManager _dreamManager = default!;
     [Dependency] private DreamRefManager _refManager = default!;
     [Dependency] private IDreamMapManager _dreamMapManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IDreamDebugManager _dreamDebugManager = default!;
     [Dependency] private IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private IEntityManager _entityManager = default!;
@@ -380,7 +379,7 @@ public sealed partial class DreamObjectTree {
         foreach (TreeEntry type in GetAllDescendants(Root)) {
             int typeId = type.Id;
             DreamTypeJson jsonType = types[typeId];
-            var definition = new DreamObjectDefinition(_dreamManager, _refManager, this, _atomManager, _dreamMapManager, _mapManager, _dreamResourceManager, _walkManager, _entityManager, _serializationManager, _appearanceSystem, _transformSystem, _pvsOverrideSystem, _metaDataSystem, _verbSystem, _particlesSystem, type);
+            var definition = new DreamObjectDefinition(_dreamManager, _refManager, this, _atomManager, _dreamMapManager, _dreamResourceManager, _walkManager, _entityManager, _serializationManager, _appearanceSystem, _transformSystem, _pvsOverrideSystem, _metaDataSystem, _verbSystem, _particlesSystem, type);
 
             type.ObjectDefinition = definition;
             type.TreeIndex = treeIndex++;

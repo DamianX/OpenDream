@@ -20,7 +20,6 @@ public sealed class DreamObjectDefinition {
     public readonly DreamObjectTree ObjectTree;
     public readonly AtomManager AtomManager;
     public readonly IDreamMapManager DreamMapManager;
-    public readonly IMapManager MapManager;
     public readonly DreamResourceManager DreamResourceManager;
     public readonly WalkManager WalkManager;
     public readonly IEntityManager EntityManager;
@@ -65,7 +64,6 @@ public sealed class DreamObjectDefinition {
         ObjectTree = copyFrom.ObjectTree;
         AtomManager = copyFrom.AtomManager;
         DreamMapManager = copyFrom.DreamMapManager;
-        MapManager = copyFrom.MapManager;
         DreamResourceManager = copyFrom.DreamResourceManager;
         WalkManager = copyFrom.WalkManager;
         EntityManager = copyFrom.EntityManager;
@@ -90,13 +88,12 @@ public sealed class DreamObjectDefinition {
             Verbs = new Dictionary<string, int>(copyFrom.Verbs);
     }
 
-    public DreamObjectDefinition(DreamManager dreamManager, DreamRefManager dreamRefManager, DreamObjectTree objectTree, AtomManager atomManager, IDreamMapManager dreamMapManager, IMapManager mapManager, DreamResourceManager dreamResourceManager, WalkManager walkManager, IEntityManager entityManager, ISerializationManager serializationManager, ServerAppearanceSystem? appearanceSystem, TransformSystem? transformSystem, PvsOverrideSystem? pvsOverrideSystem, MetaDataSystem? metaDataSystem, ServerVerbSystem? verbSystem, ServerDreamParticlesSystem? particlesSystem, TreeEntry? treeEntry) {
+    public DreamObjectDefinition(DreamManager dreamManager, DreamRefManager dreamRefManager, DreamObjectTree objectTree, AtomManager atomManager, IDreamMapManager dreamMapManager, DreamResourceManager dreamResourceManager, WalkManager walkManager, IEntityManager entityManager, ISerializationManager serializationManager, ServerAppearanceSystem? appearanceSystem, TransformSystem? transformSystem, PvsOverrideSystem? pvsOverrideSystem, MetaDataSystem? metaDataSystem, ServerVerbSystem? verbSystem, ServerDreamParticlesSystem? particlesSystem, TreeEntry? treeEntry) {
         DreamManager = dreamManager;
         DreamRefManager = dreamRefManager;
         ObjectTree = objectTree;
         AtomManager = atomManager;
         DreamMapManager = dreamMapManager;
-        MapManager = mapManager;
         DreamResourceManager = dreamResourceManager;
         WalkManager = walkManager;
         EntityManager = entityManager;

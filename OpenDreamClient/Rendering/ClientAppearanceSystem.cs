@@ -69,7 +69,6 @@ internal sealed partial class ClientAppearanceSystem : SharedAppearanceSystem {
     [Dependency] private IClyde _clyde = default!;
     [Dependency] private DMISpriteSystem _spriteSystem = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private MapSystem _mapSystem = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IRobustSerializer _serializer = default!;
@@ -352,7 +351,7 @@ internal sealed partial class ClientAppearanceSystem : SharedAppearanceSystem {
                 return appearance != null;
             case ClientObjectReference.RefType.Turf:
                 var mapCoords = new MapCoordinates(reference.TurfX, reference.TurfY, new(reference.TurfZ));
-                if (!_mapManager.TryFindGridAt(mapCoords, out _, out var grid))
+                if (!_mapSystem.TryFindGridAt(mapCoords, out _, out var grid))
                     break;
                 if (!_mapSystem.TryGetTile(grid, new(reference.TurfX, reference.TurfY), out var tile))
                     break;

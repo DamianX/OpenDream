@@ -20,7 +20,6 @@ namespace OpenDreamClient.Input;
 internal sealed partial class MouseInputSystem : SharedMouseInputSystem {
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IOverlayManager _overlayManager = default!;
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private MapSystem _mapSystem = default!;
@@ -147,7 +146,7 @@ internal sealed partial class MouseInputSystem : SharedMouseInputSystem {
         // Grid coordinates are half a meter off from entity coordinates
         mapCoords = new MapCoordinates(mapCoords.Position + new Vector2(0.5f), mapCoords.MapId);
 
-        if (_mapManager.TryFindGridAt(mapCoords, out var gridEntity, out var grid)) {
+        if (_mapSystem.TryFindGridAt(mapCoords, out var gridEntity, out var grid)) {
             Vector2i position = _mapSystem.CoordinatesToTile(gridEntity, grid, _mapSystem.MapToGrid(gridEntity, mapCoords));
             _mapSystem.TryGetTile(grid, position, out Tile tile);
             turfId = (uint)tile.TypeId;

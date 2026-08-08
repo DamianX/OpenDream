@@ -510,7 +510,7 @@ internal static partial class DreamProcNativeHelpers {
     /// It's a very BYONDish converter. Probably, you don't want to reuse it somewhere aside from the text2num implementation
     /// </remarks>
     public static double? StringToDouble(ReadOnlySpan<char> value, int radix) {
-        if (value == null || value.IsEmpty)
+        if (value.IsEmpty)
             return null;
 
         if (radix < 2 || radix > 36)
